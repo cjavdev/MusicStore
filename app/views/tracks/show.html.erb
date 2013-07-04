@@ -1,0 +1,19 @@
+<%= flash[:error] %>
+<h1><%= @track.title %></h1>
+<%= link_to "Edit", edit_track_url(@track) %>
+<%= button_to "Delete Track", 
+	{ :action => "destroy", 
+	  :id => @track.id }, 
+	  :method => :delete %>
+
+<%= ugly_lyrics(@track.lyrics) %>
+	  
+<h2><%= @track.album.title %></h2>
+
+<h3><%= @track.band.name %></h3>
+
+<h4>Notes</h4>
+
+<%= render :partial=>"notes/note_form", :locals => { :note => @note, :track => @track } %>
+
+<%= render @track.notes %>

@@ -1,0 +1,13 @@
+<br />
+<%= flash[:error] %>
+<form action="<%= session_url %>" method="post">
+	<label for="email">Email</label>
+	<input name="email" id="email"></input>
+	<br />
+	
+	<label for="password">Password</label>
+	<input name="password" id="password" type="password"></input>
+	<br />
+	
+	<input type="submit" value="Login"></input>
+</form>

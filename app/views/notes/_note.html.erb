@@ -1,0 +1,7 @@
+<p><%= note.body %></p>
+<%= button_to("Delete Note", note_url(note),
+	  :action => "destroy", 
+	  :id => note.id, 
+	  :method => :delete) %>
+by <%= note.author.email %>
+<br />

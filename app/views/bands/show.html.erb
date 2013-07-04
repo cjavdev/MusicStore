@@ -1,0 +1,10 @@
+<h1><%= @band.name %></h1>
+<%= link_to "Edit", edit_band_url(@band) %>
+
+<h2>Albums</h2>
+<%= render @band.albums %>
+
+<%= button_to "Delete Band", 
+	{ :action => "destroy", 
+	  :id => @band.id }, 
+	  :method => :delete %>

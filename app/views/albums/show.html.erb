@@ -1,0 +1,11 @@
+
+<h1><%= @album.title %></h1>  
+<h2><%= @album.band.name %></h2>
+
+<h3>Tracks</h3>
+<%= render @album.tracks %>
+
+<%= button_to "Delete Album", 
+	{ :action => "destroy", 
+	  :id => @album.id }, 
+	  :method => :delete %>

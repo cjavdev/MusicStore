@@ -1,0 +1,26 @@
+
+<% action_url = ( method == :post) ? tracks_url : track_url(@track) %>
+<form action="<%= action_url %>" method="post">
+	<label for="title">Title</label>
+	<input name="track[title]" id="title" type="text" value="<%= @track.title %>"></input>
+	<br />
+
+	<label for="album_id">Album</label>
+	<select name="track[album_id]">
+		<% Album.all.map { |album| [album.id,album.title] }.each do |album| %>
+			<option value="<%= album[0] %>"><%= album[1] %></option>
+		<% end %>
+	</select>
+	<br />
+	<label for="regular">Regular</label>
+	<input name="track[is_bonus]" id="regular" type="radio" value="f" <%= :checked if @track.is_bonus == false %>></input>
+	<br />
+	<label for="bonus">Bonus</label>
+	<input name="track[is_bonus]" id="bonus" type="radio" value="t" <%= :checked if @track.is_bonus == true %>></input>
+	<br />
+	<label for="lyrics">Lyrics</label><br />
+	<textarea name="track[lyrics]" id="lyrics" cols="40" rows="20" ><%= @track.lyrics  %></textarea>
+	<br />
+	<input type="hidden" name="_method" value="<%= method %>"></input>
+	<input name="submit" type="submit"></input>
+</form>

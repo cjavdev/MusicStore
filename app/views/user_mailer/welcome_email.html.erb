@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	</head>
+	<body>
+		</h1>Welcome to My Music App <%= @user.email %></h1>
+		
+		<p>You have one more step to get started</p>
+		<p>validate your login 
+			<%= link_to "here", activate_user_url(@user, :activation_token => @user.get_activation_token) %>
+		</p>
+	</body>
+</html>

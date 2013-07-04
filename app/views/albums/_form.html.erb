@@ -1,0 +1,18 @@
+<%= form_for(@album) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<br />
+	
+	<%= f.label :band_id, "Band"%>
+	<%= f.collection_select(:band_id, Band.all, :id, :name) %>
+	<br />
+
+	<%= f.label :recorded_live, "Studio" %>
+	<%= f.radio_button :recorded_live, "f", :checked => true %>
+	<br />
+	
+	<%= f.label :recorded_live, "Live" %>
+	<%= f.radio_button :recorded_live, "t" %>
+	<br />
+	<%= f.submit %>
+<% end %>
